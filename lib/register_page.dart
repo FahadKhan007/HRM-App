@@ -96,8 +96,9 @@ class RegisterPage extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         AuthController.instance.register(
-                            emailController.text.trim(),
-                            passwordController.text.trim());
+                          emailController.text.trim(),
+                          passwordController.text.trim(),
+                        );
                       },
                       child: Container(
                         padding: EdgeInsets.all(20.0),

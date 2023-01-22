@@ -1,17 +1,18 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, must_be_immutable
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, must_be_immutable, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:human_resource_management/auth_controller.dart';
+import 'package:human_resource_management/register_page.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 import 'my_drawer_header.dart';
 
-class LandingPage extends StatelessWidget {
+class HomePage extends StatelessWidget {
   String email;
 
-  LandingPage({Key? key, required this.email}) : super(key: key);
+  HomePage({Key? key, required this.email}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,38 @@ class LandingPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         title: Text("DashBoard"),
+        centerTitle: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(25),
+            bottomRight: Radius.circular(25),
+          ),
+        ),
+        actions: <Widget>[
+          ElevatedButton(
+            child: Text("Log Out"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.purple[900],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25),
+                  topLeft: Radius.circular(25),
+                  //topRight: Radius.elliptical(10, 10),
+                ),
+              ),
+            ),
+
+            onPressed: (() {
+              AuthController.instance.logOut();
+            }),
+            // IconButton(
+            //   icon: Icon(Icons.logout_rounded),
+            //   onPressed: () {
+            //     AuthController.instance.logOut();
+            //   },
+          ),
+        ],
       ),
       drawer: Drawer(
         child: SingleChildScrollView(
@@ -120,50 +153,52 @@ class LandingPage extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 24),
-              child: Builder(
-                builder: (context) {
-                  final GlobalKey<SlideActionState> key = GlobalKey();
-                  return SlideAction(
-                    text: "Slide to Check In",
-                    textStyle: GoogleFonts.ubuntu(
-                      fontSize: 20,
-                      color: Colors.black,
-                    ),
-                    outerColor: Colors.grey[300],
-                    innerColor: Colors.deepPurple,
-                  );
-                },
-              ),
-            ),
+            // Container(
+            //   margin: EdgeInsets.only(top: 24),
+            //   child: Builder(
+            //     builder: (context) {
+            //       // ignore: unused_local_variable
+            //       final GlobalKey<SlideActionState> key = GlobalKey();
+            //       return SlideAction(
+            //         text: "Slide to Check In",
+            //         textStyle: GoogleFonts.ubuntu(
+            //           fontSize: 20,
+            //           color: Colors.black,
+            //         ),
+            //         outerColor: Colors.grey[300],
+            //         innerColor: Colors.deepPurple,
+            //       );
+            //     },
+            //   ),
+            // ),
             SizedBox(height: 50),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: GestureDetector(
-                onTap: () {
-                  AuthController.instance.logOut();
-                },
-                child: Container(
-                  padding: EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Sign Out',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            //   child: GestureDetector(
+            //     onTap: () {
+            //       AuthController.instance.logOut();
+            //     },
+            //     child: Container(
+            //       padding: EdgeInsets.all(20.0),
+            //       decoration: BoxDecoration(
+            //         color: Colors.deepPurple,
+            //         border: Border.all(color: Colors.black),
+            //         borderRadius: BorderRadius.circular(12),
+            //       ),
+            //       child: Center(
+            //         child: Text(
+            //           'Sign Out',
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             fontWeight: FontWeight.bold,
+            //             fontSize: 18,
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -182,9 +217,7 @@ class LandingPage extends StatelessWidget {
   Widget menuItem() {
     return Material(
       child: InkWell(
-        onTap: (() {
-          Get.off(LandingPage(email: email));
-        }),
+        onTap: (() {}),
         child: Padding(
           padding: EdgeInsets.all(15.0),
           child: Row(

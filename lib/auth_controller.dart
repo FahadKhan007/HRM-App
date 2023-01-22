@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:human_resource_management/landing_page.dart';
+import 'package:human_resource_management/home_page.dart';
 import 'package:human_resource_management/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class AuthController extends GetxController {
       print("login page");
       Get.offAll(() => LoginPage());
     } else {
-      Get.offAll(() => LandingPage(email: user.email!));
+      Get.offAll(() => HomePage(email: user.email!));
     }
   }
 
