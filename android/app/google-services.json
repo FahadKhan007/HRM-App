@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "299548738680",
+    "project_id": "hrm-app-7b5e3",
+    "storage_bucket": "hrm-app-7b5e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299548738680:android:33ff089eb1e7273213198d",
+        "android_client_info": {
+          "package_name": "com.example.human_resource_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299548738680-vn9t0jodvfkk75ifmjl4ecr0p3dgvrj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIF4aC_S01vY3dI1rlz4Nsz9ScaaKbDYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299548738680-vn9t0jodvfkk75ifmjl4ecr0p3dgvrj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
