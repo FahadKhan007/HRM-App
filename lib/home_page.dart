@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
           ElevatedButton(
             child: Text("Log Out"),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.purple[900],
+              backgroundColor: Colors.purple[600],
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(25),
@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
       ),
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
               margin: EdgeInsets.only(top: 12),
               height: 150,
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Colors.grey[400],
                 // ignore: prefer_const_literals_to_create_immutables
                 boxShadow: [
                   BoxShadow(
@@ -127,10 +127,10 @@ class HomePage extends StatelessWidget {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         Text(
-                          "Check In",
+                          "Check In Time",
                         ),
                         Text(
-                          "09:30",
+                          "09:30 am",
                         ),
                       ],
                     ),
@@ -142,10 +142,10 @@ class HomePage extends StatelessWidget {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         Text(
-                          "Check Out",
+                          "Check Out Time",
                         ),
                         Text(
-                          "15:30",
+                          "03:30 pm",
                         ),
                       ],
                     ),
@@ -171,7 +171,147 @@ class HomePage extends StatelessWidget {
             //     },
             //   ),
             // ),
-            SizedBox(height: 50),
+            SizedBox(height: 20),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    GestureDetector(
+                      onDoubleTap: () {},
+                      child: Container(
+                        height: 60,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          // ignore: prefer_const_literals_to_create_immutables
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 10,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Check In",
+                            style: GoogleFonts.ubuntu(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        height: 60,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          color: Colors.purple[600],
+                          // ignore: prefer_const_literals_to_create_immutables
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 10,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Test Button",
+                            style: GoogleFonts.ubuntu(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        height: 60,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          color: Colors.purple[600],
+                          // ignore: prefer_const_literals_to_create_immutables
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 10,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Report",
+                            style: GoogleFonts.ubuntu(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        height: 60,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          // ignore: prefer_const_literals_to_create_immutables
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 10,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Test Button",
+                            style: GoogleFonts.ubuntu(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
 
             // Padding(
             //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
