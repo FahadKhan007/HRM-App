@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:human_resource_management/auth_controller.dart';
 import 'package:human_resource_management/register_page.dart';
-import 'package:slide_to_act/slide_to_act.dart';
+import 'package:human_resource_management/report_page.dart';
 
+import 'attendance_page.dart';
 import 'my_drawer_header.dart';
 
 class HomePage extends StatelessWidget {
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
           ElevatedButton(
             child: Text("Log Out"),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.purple[600],
+              backgroundColor: Colors.deepPurple[900],
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(25),
@@ -53,17 +54,8 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              MyDrawerHeader(),
-              MyDrawerList(),
-            ],
-          ),
-        ),
-      ),
-      backgroundColor: Colors.grey[300],
+      drawer: MyDrawerHeader(),
+      backgroundColor: Colors.white24,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(15),
         child: Column(
@@ -76,7 +68,7 @@ class HomePage extends StatelessWidget {
                 'Welcome',
                 style: GoogleFonts.ubuntu(
                   fontSize: 20,
-                  color: Colors.black,
+                  color: Colors.white70,
                 ),
               ),
             ),
@@ -86,7 +78,7 @@ class HomePage extends StatelessWidget {
                 email,
                 style: GoogleFonts.ubuntu(
                   fontSize: 16,
-                  color: Colors.black45,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -97,7 +89,7 @@ class HomePage extends StatelessWidget {
                 'Today\'s Status',
                 style: GoogleFonts.ubuntu(
                   fontSize: 20,
-                  color: Colors.black,
+                  color: Colors.white70,
                 ),
               ),
             ),
@@ -105,7 +97,7 @@ class HomePage extends StatelessWidget {
               margin: EdgeInsets.only(top: 12),
               height: 150,
               decoration: BoxDecoration(
-                color: Colors.grey[400],
+                color: Colors.deepPurpleAccent[400],
                 // ignore: prefer_const_literals_to_create_immutables
                 boxShadow: [
                   BoxShadow(
@@ -128,9 +120,17 @@ class HomePage extends StatelessWidget {
                       children: [
                         Text(
                           "Check In Time",
+                          style: GoogleFonts.ubuntu(
+                            fontSize: 18,
+                            color: Colors.white70,
+                          ),
                         ),
                         Text(
                           "09:30 am",
+                          style: GoogleFonts.ubuntu(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),
@@ -143,9 +143,17 @@ class HomePage extends StatelessWidget {
                       children: [
                         Text(
                           "Check Out Time",
+                          style: GoogleFonts.ubuntu(
+                            fontSize: 18,
+                            color: Colors.white70,
+                          ),
                         ),
                         Text(
                           "03:30 pm",
+                          style: GoogleFonts.ubuntu(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),
@@ -171,7 +179,7 @@ class HomePage extends StatelessWidget {
             //     },
             //   ),
             // ),
-            SizedBox(height: 20),
+            SizedBox(height: 40),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -180,7 +188,9 @@ class HomePage extends StatelessWidget {
                 Column(
                   children: [
                     GestureDetector(
-                      onDoubleTap: () {},
+                      onTap: () {
+                        Get.to(() => AttendancePage());
+                      },
                       child: Container(
                         height: 60,
                         width: 120,
@@ -199,7 +209,7 @@ class HomePage extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.center,
                           child: Text(
-                            "Check In",
+                            "Attendance",
                             style: GoogleFonts.ubuntu(
                               fontSize: 16,
                               color: Colors.white,
@@ -217,7 +227,7 @@ class HomePage extends StatelessWidget {
                         height: 60,
                         width: 120,
                         decoration: BoxDecoration(
-                          color: Colors.purple[600],
+                          color: Colors.deepPurple[900],
                           // ignore: prefer_const_literals_to_create_immutables
                           boxShadow: [
                             BoxShadow(
@@ -248,12 +258,14 @@ class HomePage extends StatelessWidget {
                 Column(
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => ReportPage());
+                      },
                       child: Container(
                         height: 60,
                         width: 120,
                         decoration: BoxDecoration(
-                          color: Colors.purple[600],
+                          color: Colors.deepPurple[900],
                           // ignore: prefer_const_literals_to_create_immutables
                           boxShadow: [
                             BoxShadow(
@@ -345,45 +357,45 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget MyDrawerList() {
-    return Container(
-      padding: EdgeInsets.only(top: 15),
-      child: Column(children: [
-        menuItem(),
-      ]),
-    );
-  }
+  // Widget MyDrawerList() {
+  //   return Container(
+  //     padding: EdgeInsets.only(top: 15),
+  //     child: Column(children: [
+  //       menuItem(),
+  //     ]),
+  //   );
+  // }
 
-  Widget menuItem() {
-    return Material(
-      child: InkWell(
-        onTap: (() {}),
-        child: Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Row(
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              Expanded(
-                child: Icon(
-                  Icons.dashboard_customize_outlined,
-                  size: 20,
-                  color: Colors.black,
-                ),
-              ),
-              Expanded(
-                flex: 3,
-                child: Text(
-                  "Dashboard",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget menuItem() {
+  //   return Material(
+  //     child: InkWell(
+  //       onTap: (() {}),
+  //       child: Padding(
+  //         padding: EdgeInsets.all(15.0),
+  //         child: Row(
+  //           // ignore: prefer_const_literals_to_create_immutables
+  //           children: [
+  //             Expanded(
+  //               child: Icon(
+  //                 Icons.dashboard_customize_outlined,
+  //                 size: 20,
+  //                 color: Colors.black,
+  //               ),
+  //             ),
+  //             Expanded(
+  //               flex: 3,
+  //               child: Text(
+  //                 "Dashboard",
+  //                 style: TextStyle(
+  //                   color: Colors.black,
+  //                   fontSize: 16,
+  //                 ),
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
