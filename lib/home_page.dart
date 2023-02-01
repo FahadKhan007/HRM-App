@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:human_resource_management/auth_controller.dart';
 import 'package:human_resource_management/register_page.dart';
 import 'package:human_resource_management/report_page.dart';
+import 'package:intl/intl.dart';
 
 import 'attendance_page.dart';
 import 'my_drawer_header.dart';
@@ -17,6 +18,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var time = DateTime.now();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
@@ -259,7 +261,15 @@ class HomePage extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => ReportPage());
+                        Get.to(
+                          () => ReportPage(),
+                          arguments: {
+                            "date":
+                                "Current Date: ${DateFormat('yMMMMd').format(time)}",
+                            "time":
+                                "Current Time: ${DateFormat('jms').format(time)}",
+                          },
+                        );
                       },
                       child: Container(
                         height: 60,
