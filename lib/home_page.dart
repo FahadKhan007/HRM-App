@@ -9,7 +9,7 @@ import 'package:human_resource_management/report_page.dart';
 import 'package:intl/intl.dart';
 
 import 'attendance_page.dart';
-import 'my_drawer_header.dart';
+import 'my_drawer.dart';
 
 class HomePage extends StatelessWidget {
   String email;
@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      drawer: MyDrawerHeader(),
+      drawer: MyDrawer(),
       backgroundColor: Colors.white24,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(15),

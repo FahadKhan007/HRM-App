@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations
 
 import 'dart:ffi';
 
@@ -80,8 +80,7 @@ class _AttendancePageState extends State<AttendancePage> {
                       // setState(() {});
                       try {
                         await checkInInfo.set({
-                          "time": "Check in time: " +
-                              DateFormat('jms').format(time1),
+                          "time": DateFormat('jms').format(time1),
                         });
                       } catch (e) {
                         print('You got an error !! $e');
@@ -120,24 +119,25 @@ class _AttendancePageState extends State<AttendancePage> {
                   alignment: Alignment.centerLeft,
                   child: GestureDetector(
                     onTap: () async {
+                      Get.to(() => ReportPage());
                       // Get.to(() => ReportPage(), arguments: {
                       //   "date":
                       //       "Current Date: ${DateFormat('yMMMMd').format(time)}",
                       //   "time":
                       //       "Current Time: ${DateFormat('jms').format(time)}",
                       // });
-                      setState(() {});
+                      // setState(() {});
                       try {
-                        await checkOutInfo.update({
+                        await checkOutInfo.set({
                           "date":
-                              "Current Date: ${DateFormat('yMMMMd').format(DateTime.now())}",
-                          "time": "${DateFormat('jms').format(time2)}",
-                          "hour":
-                              "Difference in hours: " + diff.inHours.toString(),
-                          "minute": "Difference in minutes: " +
-                              (diff.inMinutes % 60).toString(),
-                          "second": "Difference in seconds: " +
-                              ((diff.inSeconds % 3600) % 60).toString(),
+                              "${DateFormat('yMMMMd').format(DateTime.now())}",
+                          "time": DateFormat('jms').format(time2),
+                          // "hour":
+                          //     "Difference in hours: " + diff.inHours.toString(),
+                          // "minute": "Difference in minutes: " +
+                          //     (diff.inMinutes % 60).toString(),
+                          // "second": "Difference in seconds: " +
+                          //     ((diff.inSeconds % 3600) % 60).toString(),
                         });
                       } catch (e) {
                         print('You got an error !! $e');
