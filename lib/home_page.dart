@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
               alignment: Alignment.centerLeft,
               margin: EdgeInsets.only(top: 12),
               child: Text(
-                'Today\'s Status',
+                'Checking In/Out Details',
                 style: GoogleFonts.ubuntu(
                   fontSize: 20,
                   color: Colors.white70,

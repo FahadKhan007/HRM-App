@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations
 
 import 'dart:ffi';
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,7 +21,10 @@ class AttendancePage extends StatefulWidget {
 class _AttendancePageState extends State<AttendancePage> {
   @override
   Widget build(BuildContext context) {
-    DatabaseReference ref = FirebaseDatabase.instance.ref('checkInInfo/');
+    bool check = false;
+    final databaseRef = FirebaseDatabase.instance.ref('checkInInfo/');
+    final databaseRef2 = FirebaseDatabase.instance.ref('checkOutInfo/');
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
@@ -74,7 +77,7 @@ class _AttendancePageState extends State<AttendancePage> {
                           ),
                         ),
                         Text(
-                          "09:30 am",
+                          "--/--",
                           style: GoogleFonts.ubuntu(
                             fontSize: 15,
                             color: Colors.white,
@@ -154,12 +157,62 @@ class _AttendancePageState extends State<AttendancePage> {
                     innerColor: Colors.deepPurple,
                     key: key,
                     onSubmit: () async {
-                      try {
-                        await ref.child('test time').push().set(DateTime.now());
-                        print("writing in DB");
-                      } catch (e) {
-                        print("Error !!! $e");
-                      }
+                      databaseRef
+                          .child(
+                              DateTime.now().millisecondsSinceEpoch.toString())
+                          .set({
+                        'time': DateFormat('jms').format(DateTime.now()),
+                      }).then((value) {
+                        print("successful");
+                        setState(() {
+                          check = false;
+                        });
+                      }).onError((error, stackTrace) {
+                        setState(() {
+                          check = false;
+                        });
+                        print('Error');
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Builder(
+                builder: (context) {
+                  final GlobalKey<SlideActionState> key = GlobalKey();
+
+                  return SlideAction(
+                    text: "Slide to Check Out",
+                    textStyle: GoogleFonts.ubuntu(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
+                    outerColor: Colors.white,
+                    innerColor: Colors.deepPurple[900],
+                    key: key,
+                    onSubmit: () async {
+                      databaseRef2
+                          .child(
+                              DateTime.now().millisecondsSinceEpoch.toString())
+                          .set({
+                        'time': DateFormat('jms').format(DateTime.now()),
+                      }).then((value) {
+                        print("successful");
+                        setState(() {
+                          check = false;
+                        });
+                      }).onError((error, stackTrace) {
+                        setState(() {
+                          check = false;
+                        });
+                        print('Error');
+                      });
                     },
                   );
                 },

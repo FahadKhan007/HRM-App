@@ -59,99 +59,105 @@ class _ReportPageState extends State<ReportPage> {
             //     },
             //   ),
             // ),
-            Container(
-              margin: EdgeInsets.only(top: 12),
-              height: 250,
-              decoration: BoxDecoration(
-                color: Colors.deepPurpleAccent[400],
-                // ignore: prefer_const_literals_to_create_immutables
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 10,
-                    offset: Offset(2, 2),
-                  ),
-                ],
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        SizedBox(
-                          height: 40,
-                        ),
-                        Text(
-                          // textAlign: TextAlign.center,
-                          "Check In Time",
-                          style: GoogleFonts.ubuntu(
-                            fontSize: 18,
-                            color: Colors.white70,
-                          ),
-                        ),
-                        Expanded(
-                          child: FirebaseAnimatedList(
-                            query: ref,
-                            itemBuilder: (context, snapshot, animation, index) {
-                              return ListTile(
-                                title: Text(
-                                  textAlign: TextAlign.center,
-                                  snapshot.child('time').value.toString(),
-                                  style: GoogleFonts.ubuntu(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.all(25),
+                // height: 250,
+                decoration: BoxDecoration(
+                  color: Colors.deepPurpleAccent[400],
+                  // ignore: prefer_const_literals_to_create_immutables
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white54,
+                      blurRadius: 10,
+                      offset: Offset(2, 2),
                     ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        SizedBox(
-                          height: 40,
-                        ),
-                        Text(
-                          "Check Out Time",
-                          style: GoogleFonts.ubuntu(
-                            fontSize: 18,
-                            color: Colors.white70,
+                  ],
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          SizedBox(
+                            height: 40,
                           ),
-                        ),
-                        Expanded(
-                          child: FirebaseAnimatedList(
-                            query: ref2,
-                            itemBuilder: (context, snapshot, animation, index) {
-                              return ListTile(
-                                title: Text(
-                                  textAlign: TextAlign.center,
-                                  snapshot.child('time').value.toString(),
-                                  style: GoogleFonts.ubuntu(
-                                    fontSize: 15,
-                                    color: Colors.white,
+                          Text(
+                            // textAlign: TextAlign.center,
+                            "Check In Time",
+                            style: GoogleFonts.ubuntu(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white70,
+                            ),
+                          ),
+                          Expanded(
+                            child: FirebaseAnimatedList(
+                              query: ref,
+                              itemBuilder:
+                                  (context, snapshot, animation, index) {
+                                return ListTile(
+                                  title: Text(
+                                    textAlign: TextAlign.center,
+                                    snapshot.child('time').value.toString(),
+                                    style: GoogleFonts.ubuntu(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  )
-                ],
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Text(
+                            "Check Out Time",
+                            style: GoogleFonts.ubuntu(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white70,
+                            ),
+                          ),
+                          Expanded(
+                            child: FirebaseAnimatedList(
+                              query: ref2,
+                              itemBuilder:
+                                  (context, snapshot, animation, index) {
+                                return ListTile(
+                                  title: Text(
+                                    textAlign: TextAlign.center,
+                                    snapshot.child('time').value.toString(),
+                                    style: GoogleFonts.ubuntu(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ],
