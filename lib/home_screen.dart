@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:human_resource_management/auth_controller.dart';
-import 'package:human_resource_management/register_page.dart';
-import 'package:human_resource_management/report_page.dart';
+import 'package:human_resource_management/report_screen.dart';
 import 'package:intl/intl.dart';
 
-import 'attendance_page.dart';
+import 'attendance_screen.dart';
 import 'my_drawer.dart';
 
 class HomePage extends StatelessWidget {

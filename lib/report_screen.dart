@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
@@ -124,6 +126,7 @@ class _ReportPageState extends State<ReportPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         // ignore: prefer_const_literals_to_create_immutables
                         children: [
+                          // ignore: prefer_const_constructors
                           SizedBox(
                             height: 40,
                           ),

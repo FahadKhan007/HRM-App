@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
-import 'report_page.dart';
+import 'report_screen.dart';
 
 class AttendancePage extends StatefulWidget {
   const AttendancePage({super.key});
@@ -194,7 +194,7 @@ class _AttendancePageState extends State<AttendancePage> {
                       color: Colors.black,
                     ),
                     outerColor: Colors.white,
-                    innerColor: Colors.deepPurple[900],
+                    innerColor: Colors.purple,
                     key: key,
                     onSubmit: () async {
                       databaseRef2

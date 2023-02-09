@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:human_resource_management/auth_controller.dart';
-import 'login_page.dart';
+import 'login_screen.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});

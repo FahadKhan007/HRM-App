@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'attendance_page.dart';
+import 'attendance_screen.dart';
 import 'auth_controller.dart';
-import 'home_page.dart';
-import 'report_page.dart';
+import 'home_screen.dart';
+import 'report_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -35,7 +35,7 @@ class MyDrawer extends StatelessWidget {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         image: NetworkImage(
-                          'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif',
+                          'https://media.tenor.com/c_YU3p6py2AAAAAd/meme-crying.gif',
                         ),
                         fit: BoxFit.fill,
                       ),
