@@ -16,9 +16,12 @@ class SplashScreen extends StatelessWidget {
           width: 100,
           height: 100,
           child: CircularProgressIndicator(
-            strokeWidth: 8,
+            strokeWidth: 8.0,
             // stockoverflow:SplashScreen
             backgroundColor: Colors.deepPurple,
+            // color: Colors.redAccent,
+            value: 0.5,
+            valueColor: AlwaysStoppedAnimation(Colors.deepPurpleAccent),
           ),
         ),
       ),

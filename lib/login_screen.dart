@@ -6,14 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:human_resource_management/auth_controller.dart';
 import 'register_screen.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginScreen> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginScreen> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   @override
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                             fontWeight: FontWeight.bold,
                           ),
                           recognizer: TapGestureRecognizer()
-                            ..onTap = (() => Get.to(RegisterPage()))),
+                            ..onTap = (() => Get.to(RegisterScreen()))),
                     ),
                   ],
                 ),

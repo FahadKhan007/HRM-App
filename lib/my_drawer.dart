@@ -78,7 +78,7 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             onTap: () {
               Get.to(
-                () => AttendancePage(),
+                () => AttendanceScreen(),
               );
             },
             leading: Icon(Icons.calendar_month),
@@ -94,7 +94,7 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             onTap: () {
               Get.to(
-                () => ReportPage(),
+                () => ReportScreen(),
               );
             },
             leading: Icon(Icons.data_exploration),

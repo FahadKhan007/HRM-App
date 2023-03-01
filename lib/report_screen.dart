@@ -8,16 +8,16 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-class ReportPage extends StatefulWidget {
-  const ReportPage({super.key});
+class ReportScreen extends StatefulWidget {
+  const ReportScreen({super.key});
 
   @override
-  State<ReportPage> createState() => _ReportPageState();
+  State<ReportScreen> createState() => _ReportScreenState();
 }
 
-class _ReportPageState extends State<ReportPage> {
-  final ref = FirebaseDatabase.instance.ref('checkInInfo');
-  final ref2 = FirebaseDatabase.instance.ref('checkOutInfo');
+class _ReportScreenState extends State<ReportScreen> {
+  final ref = FirebaseDatabase.instance.ref('checkInInfo/');
+  final ref2 = FirebaseDatabase.instance.ref('checkInDetails/CheckIn');
   // late String displayText;
 
   @override
@@ -105,6 +105,15 @@ class _ReportPageState extends State<ReportPage> {
                               itemBuilder:
                                   (context, snapshot, animation, index) {
                                 return ListTile(
+                                  trailing: Text('test'),
+                                  subtitle: Text(
+                                    textAlign: TextAlign.center,
+                                    snapshot.child('time').value.toString(),
+                                    style: GoogleFonts.ubuntu(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                   title: Text(
                                     textAlign: TextAlign.center,
                                     snapshot.child('time').value.toString(),
@@ -140,6 +149,7 @@ class _ReportPageState extends State<ReportPage> {
                           ),
                           Expanded(
                             child: FirebaseAnimatedList(
+                              // key: ref,
                               query: ref2,
                               itemBuilder:
                                   (context, snapshot, animation, index) {

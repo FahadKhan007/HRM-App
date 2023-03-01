@@ -8,6 +8,7 @@ import 'package:human_resource_management/report_screen.dart';
 import 'package:intl/intl.dart';
 
 import 'attendance_screen.dart';
+import 'attendance_screen_two.dart';
 import 'my_drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -190,7 +191,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => AttendancePage());
+                        Get.to(() => AttendanceScreen());
                       },
                       child: Container(
                         height: 60,
@@ -223,7 +224,9 @@ class HomePage extends StatelessWidget {
                       height: 30,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        // Get.to(AttendanceScreenTwo());
+                      },
                       child: Container(
                         height: 60,
                         width: 120,
@@ -261,7 +264,7 @@ class HomePage extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         Get.to(
-                          () => ReportPage(),
+                          () => ReportScreen(),
                           arguments: {
                             "date":
                                 "Current Date: ${DateFormat('yMMMMd').format(time)}",

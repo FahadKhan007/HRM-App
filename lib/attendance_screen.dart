@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations
 
 import 'dart:ffi';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +12,14 @@ import 'package:slide_to_act/slide_to_act.dart';
 
 import 'report_screen.dart';
 
-class AttendancePage extends StatefulWidget {
-  const AttendancePage({super.key});
+class AttendanceScreen extends StatefulWidget {
+  const AttendanceScreen({super.key});
 
   @override
-  State<AttendancePage> createState() => _AttendancePageState();
+  State<AttendanceScreen> createState() => _AttendanceScreenState();
 }
 
-class _AttendancePageState extends State<AttendancePage> {
+class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     bool check = false;
@@ -157,22 +158,40 @@ class _AttendancePageState extends State<AttendancePage> {
                     innerColor: Colors.deepPurple,
                     key: key,
                     onSubmit: () async {
-                      databaseRef
-                          .child(
-                              DateTime.now().millisecondsSinceEpoch.toString())
-                          .set({
-                        'time': DateFormat('jms').format(DateTime.now()),
-                      }).then((value) {
-                        print("successful");
-                        setState(() {
-                          check = false;
+                      User? user = FirebaseAuth.instance.currentUser;
+                      if (user != null) {
+                        String uid = user.uid;
+                        int date = DateTime.now().millisecondsSinceEpoch;
+                        String? email = user.email;
+
+                        var formatter = new DateFormat('yyyy-MM-dd');
+                        String formattedDate = formatter.format(DateTime.now());
+
+                        DatabaseReference checkInRef = FirebaseDatabase.instance
+                            .ref()
+                            .child("checkInInfo")
+                            .child(uid)
+                            .child(formattedDate);
+
+                        String? checkInDate = checkInRef.push().key;
+
+                        await checkInRef.child("CheckInTime").set({
+                          'uid': uid,
+                          'date': date,
+                          'email': email,
+                          'checkInDate': checkInDate,
+                        }).then((value) {
+                          print("Successful");
+                          setState(() {
+                            check = false;
+                          });
+                        }).onError((error, stackTrace) {
+                          setState(() {
+                            check = false;
+                          });
+                          print("Error");
                         });
-                      }).onError((error, stackTrace) {
-                        setState(() {
-                          check = false;
-                        });
-                        print('Error');
-                      });
+                      }
                     },
                   );
                 },
@@ -197,22 +216,56 @@ class _AttendancePageState extends State<AttendancePage> {
                     innerColor: Colors.purple,
                     key: key,
                     onSubmit: () async {
-                      databaseRef2
-                          .child(
-                              DateTime.now().millisecondsSinceEpoch.toString())
-                          .set({
-                        'time': DateFormat('jms').format(DateTime.now()),
-                      }).then((value) {
-                        print("successful");
-                        setState(() {
-                          check = false;
+                      User? user = FirebaseAuth.instance.currentUser;
+                      if (user != null) {
+                        String uid = user.uid;
+                        int date = DateTime.now().millisecondsSinceEpoch;
+                        String? email = user.email;
+
+                        var formatter = new DateFormat('yyyy-MM-dd');
+                        String formattedDate = formatter.format(DateTime.now());
+
+                        DatabaseReference checkInRef = FirebaseDatabase.instance
+                            .ref()
+                            .child("checkInInfo")
+                            .child(uid)
+                            .child(formattedDate);
+
+                        String? checkOutDate = checkInRef.push().key;
+
+                        await checkInRef.child("CheckOutTime").set({
+                          'uid': uid,
+                          'date': date,
+                          'email': email,
+                          'checkOutDate': checkOutDate,
+                        }).then((value) {
+                          print("Successful");
+                          setState(() {
+                            check = false;
+                          });
+                        }).onError((error, stackTrace) {
+                          setState(() {
+                            check = false;
+                          });
+                          print("Error");
                         });
-                      }).onError((error, stackTrace) {
-                        setState(() {
-                          check = false;
-                        });
-                        print('Error');
-                      });
+                      }
+                      // databaseRef2
+                      //     .child(
+                      //         DateTime.now().millisecondsSinceEpoch.toString())
+                      //     .set({
+                      //   'time': DateFormat('jms').format(DateTime.now()),
+                      // }).then((value) {
+                      //   print("successful");
+                      //   setState(() {
+                      //     check = false;
+                      //   });
+                      // }).onError((error, stackTrace) {
+                      //   setState(() {
+                      //     check = false;
+                      //   });
+                      //   print('Error');
+                      // });
                     },
                   );
                 },
@@ -226,7 +279,7 @@ class _AttendancePageState extends State<AttendancePage> {
 }
  
 
-// class _AttendancePageState extends State<AttendancePage> {
+// class _AttendanceScreenState extends State<AttendanceScreen> {
 //   // ignore: deprecated_member_use
 //   late final database = FirebaseDatabase.instance.reference();
 

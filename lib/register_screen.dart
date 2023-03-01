@@ -7,8 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:human_resource_management/auth_controller.dart';
 import 'login_screen.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +141,9 @@ class RegisterPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = (() => Get.to(LoginPage()))),
+                              ..onTap = (() {
+                                Get.to(LoginScreen());
+                              })),
                       ),
                     ],
                   ),
