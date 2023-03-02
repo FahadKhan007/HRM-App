@@ -226,6 +226,7 @@ class HomePage extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         // Get.to(AttendanceScreenTwo());
+                        Get.to(My2App());
                       },
                       child: Container(
                         height: 60,

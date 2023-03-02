@@ -1,16 +1,16 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations
 
-import 'dart:ffi';
+// import 'dart:ffi';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
-import 'report_screen.dart';
+// import 'report_screen.dart';
 
 class AttendanceScreen extends StatefulWidget {
   const AttendanceScreen({super.key});
@@ -164,7 +164,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                         int date = DateTime.now().millisecondsSinceEpoch;
                         String? email = user.email;
 
-                        var formatter = new DateFormat('yyyy-MM-dd');
+                        var formatter = DateFormat('yyyy-MM-dd');
                         String formattedDate = formatter.format(DateTime.now());
 
                         DatabaseReference checkInRef = FirebaseDatabase.instance
