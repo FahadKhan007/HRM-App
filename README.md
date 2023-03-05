@@ -1,6 +1,6 @@
 # human_resource_management
 
-## HRM APP
+## HRM APP using Real Time Database getX
 
 A new Flutter project.
 
